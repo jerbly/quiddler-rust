@@ -35,8 +35,8 @@ mod tests {
     fn test_dict() -> anyhow::Result<()> {
         let solver = Solver::new("dictionary-sowpods.txt".to_string())?;
         println!("{:?}", solver.dictionary.size());
-        let key = "]^IR]G".to_string().chars().collect();
-        assert_eq!(solver.dictionary.contains(&key), KeyState::STRING);
+        let key = "INQUIRING".to_string().chars().collect();
+        assert_eq!(solver.dictionary.contains(&key), KeyState::STRING(46));
         Ok(())
     }
 }
