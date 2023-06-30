@@ -1,4 +1,4 @@
-use crate::{solver::Solver, trie::KeyState};
+use crate::solver::Solver;
 
 pub mod solver;
 pub mod trie;
@@ -7,9 +7,11 @@ fn main() -> anyhow::Result<()> {
     use std::time::Instant;
     let now = Instant::now();
     let solver = Solver::new("dictionary-sowpods.txt".to_string())?;
-    let d_elapsed = now.elapsed();
-    println!("{} words in {:?}", solver.dictionary.size(), d_elapsed);
-    let key = "INQUIRING".to_string().chars().collect();
-    assert_eq!(solver.dictionary.contains(&key), KeyState::STRING(46));
+    let elapsed = now.elapsed();
+    println!("{} words in {:?}", solver.dictionary.size(), elapsed);
+    let now = Instant::now();
+    let words = solver.find("]QUIRINGXPE".to_string());
+    let elapsed = now.elapsed();
+    println!("{} words found in {:?}", words.len(), elapsed);
     Ok(())
 }
