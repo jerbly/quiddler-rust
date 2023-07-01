@@ -7,7 +7,7 @@ const IN: usize = 28;
 const QU: usize = 29;
 const TH: usize = 30;
 
-const SCORE: [u8; R] = [
+pub const SCORE: [u8; R] = [
     2, 8, 8, 5, 2, 6, 6, 7, 2, 13, 8, 3, 5, 5, 2, 6, 15, 5, 3, 3, 4, 11, 10, 12, 4, 14, 10, 7, 7,
     9, 9,
 ];
